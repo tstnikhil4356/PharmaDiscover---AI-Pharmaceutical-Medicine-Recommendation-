@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://pharma-discover-ui.netlify.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=8ca7b6fd-c2d9-4461-b688-7afc9c1728bc
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=8ca7b6fd-c2d9-4461-b688-7afc9c1728bc">
+<title>PharmaDiscover — AI-Powered Manufacturer Discovery Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./PharmaDiscover — AI-Powered Manufacturer Discovery Platform_files/css2" rel="stylesheet">
+<style>
+:root{
+  --ink:#14213D;
+  --ink-soft:#28324f;
+  --paper:#F5F1E8;
+  --surface:#FFFDF9;
+  --amber:#A8672B;
+  --amber-deep:#8A5220;
+  --amber-tint:#F0DEC4;
+  --sage:#4B7266;
+  --sage-tint:#DCE8E1;
+  --clay:#A8402F;
+  --clay-tint:#F3DBD5;
+  --slate:#6B7280;
+  --border:#E4DFD1;
+  --radius:14px;
+  --shadow: 0 1px 2px rgba(20,33,61,.04), 0 8px 24px -12px rgba(20,33,61,.15);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,.display{font-family:'Fraunces',serif;letter-spacing:-0.01em;}
+code,.mono{font-family:'IBM Plex Mono',monospace;}
+button{font-family:'Inter',sans-serif;}
+input,select{font-family:'Inter',sans-serif;}
+
+/* ---------- Top chrome ---------- */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:var(--ink);color:var(--paper);position:sticky;top:0;z-index:50;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:30px;height:30px;border-radius:50%;border:1.5px dashed var(--amber-tint);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:14px;color:var(--amber-tint);flex-shrink:0;}
+.brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;}
+.brand-name span{color:var(--amber-tint);}
+.topbar-right{display:flex;align-items:center;gap:14px;font-size:12.5px;color:rgba(245,241,232,.75);}
+.session-pill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);padding:6px 8px 6px 14px;border-radius:30px;}
+.session-pill .who{display:flex;flex-direction:column;line-height:1.25;}
+.session-pill .who b{font-size:12.5px;color:#fff;}
+.session-pill .who span{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--amber-tint);}
+.session-pill button{background:rgba(255,255,255,.12);border:none;color:#fff;font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:20px;cursor:pointer;}
+.session-pill button:hover{background:rgba(255,255,255,.22);}
+
+.proto-strip{background:var(--amber-tint);color:var(--amber-deep);text-align:center;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.06em;padding:6px;text-transform:uppercase;}
+
+/* ---------- Screens ---------- */
+.screen{display:none;}
+.screen.active{display:block;}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+.login-wrap{min-height:calc(100vh - 90px);display:flex;align-items:center;justify-content:center;padding:60px 24px;
+  background:radial-gradient(circle at 15% 20%, rgba(168,103,43,.08), transparent 40%),radial-gradient(circle at 85% 80%, rgba(75,114,102,.10), transparent 40%),var(--paper);}
+.login-card{width:100%;max-width:980px;background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;}
+.login-visual{background:var(--ink);color:var(--paper);padding:44px 38px;display:flex;flex-direction:column;justify-content:space-between;position:relative;}
+.seal{width:86px;height:86px;border-radius:50%;border:1.5px dashed var(--amber-tint);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;margin-bottom:26px;}
+.seal-check{font-size:22px;color:var(--sage-tint);}
+.seal-text{font-family:'IBM Plex Mono';font-size:8px;letter-spacing:.08em;color:var(--amber-tint);text-transform:uppercase;}
+.login-visual h1{font-size:26px;line-height:1.28;font-weight:600;margin:0 0 12px;}
+.login-visual p{font-size:13.5px;line-height:1.6;color:rgba(245,241,232,.65);max-width:340px;margin:0;}
+.login-stats{display:flex;gap:22px;margin-top:32px;}
+.login-stat b{display:block;font-family:'Fraunces',serif;font-size:22px;color:var(--amber-tint);}
+.login-stat span{font-size:10.5px;color:rgba(245,241,232,.55);text-transform:uppercase;letter-spacing:.04em;}
+.access-note{margin-top:28px;padding:13px 15px;border:1px dashed rgba(245,241,232,.25);border-radius:11px;font-size:11.5px;line-height:1.6;color:rgba(245,241,232,.6);}
+.access-note b{color:var(--amber-tint);}
+
+.login-form{padding:42px 42px 34px;}
+.login-form .eyebrow{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.08em;color:var(--amber-deep);text-transform:uppercase;margin-bottom:8px;}
+.login-form h2{font-size:23px;margin:0 0 6px;}
+.login-form .sub{color:var(--slate);font-size:13.5px;margin:0 0 22px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+.field input{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:9px;font-family:'Inter';font-size:14px;background:var(--paper);color:var(--ink);}
+.field input:focus{outline:2px solid var(--amber);outline-offset:1px;border-color:var(--amber);}
+.btn-primary{width:100%;padding:13px;background:var(--amber);color:#fff;border:none;border-radius:9px;font-family:'Inter';font-weight:700;font-size:14px;cursor:pointer;transition:background .15s;}
+.btn-primary:hover{background:var(--amber-deep);}
+.login-foot{margin-top:14px;font-size:12px;color:var(--slate);text-align:center;}
+.login-error{display:none;background:var(--clay-tint);color:var(--clay);border-radius:9px;padding:10px 13px;font-size:12.5px;font-weight:600;margin-bottom:16px;}
+.login-error.show{display:block;}
+
+.demo-box{margin-top:20px;border:1px solid var(--border);border-radius:11px;padding:12px 14px;background:var(--paper);}
+.demo-box .dt{font-family:'IBM Plex Mono';font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-bottom:8px;}
+.demo-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:12px;border-top:1px solid var(--border);}
+.demo-row:first-of-type{border-top:none;}
+.demo-row .role{font-weight:700;color:var(--ink-soft);}
+.demo-row .cred{font-family:'IBM Plex Mono';font-size:11px;color:var(--slate);}
+.demo-row button{border:none;background:var(--sage-tint);color:var(--sage);font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:6px;cursor:pointer;}
+
+.denied-wrap{min-height:calc(100vh - 90px);display:flex;align-items:center;justify-content:center;padding:60px 24px;text-align:center;}
+.denied-card{max-width:420px;}
+.denied-card .icon{width:64px;height:64px;border-radius:50%;background:var(--clay-tint);color:var(--clay);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px;}
+.denied-card h2{font-size:21px;margin:0 0 8px;}
+.denied-card p{color:var(--slate);font-size:13.5px;line-height:1.6;}
+
+/* =========================================================
+   APP SHELL
+========================================================= */
+.app-shell{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 90px);}
+.sidebar{background:var(--ink);color:var(--paper);padding:22px 16px;display:flex;flex-direction:column;gap:22px;}
+.sidebar-role{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--amber-tint);padding:0 8px;}
+.sidebar-role small{display:block;font-size:9.5px;color:rgba(245,241,232,.4);margin-top:2px;letter-spacing:.03em;}
+.nav-group{display:flex;flex-direction:column;gap:2px;}
+.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:rgba(245,241,232,.4);padding:10px 10px 4px;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;font-size:13.5px;color:rgba(245,241,232,.78);cursor:pointer;}
+.nav-item .dot{width:6px;height:6px;border-radius:50%;background:rgba(245,241,232,.3);flex-shrink:0;}
+.nav-item.active{background:rgba(255,255,255,.08);color:#fff;}
+.nav-item.active .dot{background:var(--amber-tint);}
+.nav-item:hover:not(.active){background:rgba(255,255,255,.04);}
+.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid rgba(255,255,255,.1);font-size:11.5px;color:rgba(245,241,232,.5);}
+.scope-note{margin-top:auto;padding:11px 10px;border-radius:9px;background:rgba(255,255,255,.05);font-size:10.5px;line-height:1.5;color:rgba(245,241,232,.5);}
+.scope-note b{color:var(--amber-tint);}
+
+.main{padding:30px 34px;overflow:auto;}
+.main-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;flex-wrap:wrap;gap:14px;}
+.main-head h1{font-size:25px;margin:0 0 4px;}
+.main-head .sub{color:var(--slate);font-size:13.5px;margin:0;}
+.head-actions{display:flex;gap:10px;}
+.btn-outline{padding:9px 15px;border:1px solid var(--border);border-radius:9px;background:var(--surface);font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;}
+.btn-amber-sm{padding:9px 16px;border:none;border-radius:9px;background:var(--amber);color:#fff;font-size:13px;font-weight:700;cursor:pointer;}
+.btn-outline:hover{border-color:var(--amber);color:var(--amber-deep);}
+.btn-amber-sm:hover{background:var(--amber-deep);}
+
+.subview{display:none;}
+.subview.active{display:block;}
+
+/* stat cards */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+.stat-card .k{font-family:'Fraunces',serif;font-size:28px;font-weight:600;}
+.stat-card .lbl{font-size:12px;color:var(--slate);margin-top:2px;}
+.stat-card .delta{font-family:'IBM Plex Mono';font-size:11px;color:var(--sage);margin-top:8px;}
+
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-bottom:20px;}
+.panel h3{font-size:15.5px;margin:0 0 4px;}
+.panel .panel-sub{font-size:12px;color:var(--slate);margin:0 0 14px;}
+
+table{width:100%;border-collapse:collapse;}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--slate);padding:8px 10px;border-bottom:1px solid var(--border);}
+td{padding:11px 10px;font-size:13.5px;border-bottom:1px solid var(--border);}
+tr:last-child td{border-bottom:none;}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:600;}
+.badge.verified{background:var(--sage-tint);color:var(--sage);}
+.badge.pending{background:var(--amber-tint);color:var(--amber-deep);}
+.badge.flag{background:var(--clay-tint);color:var(--clay);}
+.row-actions{display:flex;gap:6px;}
+.icon-btn{border:1px solid var(--border);background:var(--surface);border-radius:6px;font-size:11px;padding:5px 9px;cursor:pointer;color:var(--ink-soft);font-weight:600;}
+.icon-btn.approve{color:var(--sage);border-color:var(--sage-tint);}
+.icon-btn.reject{color:var(--clay);border-color:var(--clay-tint);}
+
+.tab-pills{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.tab-pill{padding:8px 15px;border-radius:20px;border:1px solid var(--border);background:var(--surface);font-size:12.5px;font-weight:600;color:var(--ink-soft);cursor:pointer;}
+.tab-pill.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+/* =========================================================
+   RESEARCHER — chat + results
+========================================================= */
+.proc-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:18px;align-items:start;}
+.chat-shell{display:grid;grid-template-columns:230px 1fr;gap:16px;height:calc(100vh - 230px);min-height:560px;}
+.chat-history{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;}
+.chat-history-head{padding:14px;border-bottom:1px solid var(--border);}
+.new-chat-btn{width:100%;padding:9px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:12.5px;font-weight:700;cursor:pointer;}
+.new-chat-btn:hover{background:var(--ink-soft);}
+.history-list{flex:1;overflow:auto;padding:8px;display:flex;flex-direction:column;gap:3px;}
+.history-item{padding:10px 11px;border-radius:8px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;line-height:1.4;}
+.history-item.active{background:var(--paper);color:var(--ink);font-weight:600;}
+.history-item:hover:not(.active){background:var(--paper);}
+.history-item .ts{display:block;font-family:'IBM Plex Mono';font-size:10px;color:var(--slate);margin-top:3px;}
+.chat-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;height:100%;min-height:0;}
+.chat-head{padding:16px 18px;border-bottom:1px solid var(--border);}
+.chat-head .eyebrow{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--amber-deep);text-transform:uppercase;letter-spacing:.05em;}
+.chat-head h3{margin:4px 0 0;font-size:15.5px;}
+.chat-body{flex:1;padding:18px;overflow:auto;display:flex;flex-direction:column;gap:14px;}
+.msg{max-width:85%;padding:11px 14px;border-radius:12px;font-size:13.5px;line-height:1.5;}
+.msg.user{align-self:flex-end;background:var(--ink);color:var(--paper);border-bottom-right-radius:3px;}
+.msg.ai{align-self:flex-start;background:var(--paper);border:1px solid var(--border);border-bottom-left-radius:3px;}
+.msg.ai .tag{font-family:'IBM Plex Mono';font-size:9.5px;color:var(--sage);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:5px;}
+.chat-input{display:flex;gap:8px;padding:14px;border-top:1px solid var(--border);}
+.chat-input input{flex:1;padding:10px 13px;border:1px solid var(--border);border-radius:9px;font-family:'Inter';font-size:13.5px;background:var(--paper);}
+.chat-send{background:var(--amber);color:#fff;border:none;border-radius:9px;padding:0 16px;font-weight:700;cursor:pointer;}
+
+.results-col{display:flex;flex-direction:column;gap:12px;}
+.result-toolbar{display:flex;justify-content:space-between;align-items:center;}
+.result-toolbar .count{font-size:12.5px;color:var(--slate);}
+.mfr-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;box-shadow:var(--shadow);display:flex;gap:14px;}
+.mfr-avatar{width:42px;height:42px;border-radius:10px;background:var(--sage-tint);color:var(--sage);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;flex-shrink:0;}
+.mfr-body{flex:1;}
+.mfr-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.mfr-name{font-weight:700;font-size:14.5px;}
+.mfr-loc{font-size:12px;color:var(--slate);margin-top:2px;}
+.mfr-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;}
+.tag-pill{font-family:'IBM Plex Mono';font-size:10px;background:var(--paper);border:1px solid var(--border);padding:3px 8px;border-radius:6px;color:var(--ink-soft);}
+.mfr-actions{display:flex;gap:8px;margin-top:11px;}
+.mini-btn{font-size:11.5px;font-weight:600;padding:6px 11px;border-radius:7px;border:1px solid var(--border);background:var(--paper);cursor:pointer;color:var(--ink-soft);}
+.mini-btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+/* decision diamond */
+.decision-wrap{display:flex;flex-direction:column;align-items:center;gap:22px;padding:50px 20px;}
+.diamond{width:230px;height:230px;background:var(--clay-tint);border:2px solid var(--clay);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;border-radius:16px;}
+.diamond span{transform:rotate(-45deg);text-align:center;font-weight:700;font-size:14px;color:var(--clay);max-width:150px;line-height:1.4;}
+.decision-btns{display:flex;gap:14px;}
+
+.compare-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px;}
+.compare-card{border:1px solid var(--border);border-radius:11px;padding:13px 14px;background:var(--paper);}
+.compare-card .h{font-family:'IBM Plex Mono';font-size:10px;text-transform:uppercase;color:var(--amber-deep);letter-spacing:.05em;margin-bottom:6px;}
+.compare-card .body{font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
+.compare-table td.hl{background:var(--sage-tint);color:var(--sage);font-weight:700;border-radius:6px;}
+
+/* =========================================================
+   PROACTIVE TEAM — scan / upload
+========================================================= */
+.scan-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;}
+.capture-toggle{display:flex;gap:6px;background:rgba(255,255,255,.08);padding:4px;border-radius:10px;margin-bottom:18px;}
+.capture-toggle button{flex:1;background:transparent;border:none;color:rgba(245,241,232,.65);font-size:12.5px;font-weight:600;padding:9px;border-radius:7px;cursor:pointer;}
+.capture-toggle button.active{background:var(--amber);color:#fff;}
+.scan-frame{background:var(--ink);border-radius:18px;padding:26px;color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:460px;position:relative;overflow:hidden;}
+.capture-pane{display:none;width:100%;flex-direction:column;align-items:center;}
+.capture-pane.active{display:flex;}
+.scan-viewport{width:220px;height:300px;border:2px dashed var(--amber-tint);border-radius:14px;position:relative;display:flex;align-items:center;justify-content:center;}
+.scan-viewport .pack{width:150px;height:220px;background:linear-gradient(160deg,#e7d9c2,#cbb489);border-radius:8px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;color:#3b2c17;font-family:'IBM Plex Mono';font-size:9px;text-align:center;padding:10px;}
+.scan-line{position:absolute;left:6%;width:88%;height:2px;background:var(--sage-tint);box-shadow:0 0 10px var(--sage-tint);animation:scan 2.4s ease-in-out infinite;}
+@keyframes scan{0%{top:8%;}50%{top:88%;}100%{top:8%;}}
+.scan-caption{margin-top:20px;font-family:'IBM Plex Mono';font-size:11px;color:rgba(245,241,232,.6);text-transform:uppercase;letter-spacing:.05em;}
+.scan-btn{margin-top:18px;background:var(--amber);border:none;color:#fff;padding:11px 22px;border-radius:9px;font-weight:700;cursor:pointer;}
+
+.dropzone{width:100%;min-height:300px;border:2px dashed rgba(245,241,232,.3);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;text-align:center;padding:20px;}
+.dropzone:hover{border-color:var(--amber-tint);background:rgba(255,255,255,.03);}
+.dropzone .dz-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:22px;}
+.dropzone .dz-title{font-weight:700;font-size:14px;}
+.dropzone .dz-sub{font-size:11.5px;color:rgba(245,241,232,.55);max-width:220px;}
+.dropzone input[type=file]{display:none;}
+.file-chip{margin-top:16px;background:rgba(255,255,255,.08);padding:9px 14px;border-radius:9px;font-family:'IBM Plex Mono';font-size:11.5px;display:flex;align-items:center;gap:10px;}
+.file-chip .remove{cursor:pointer;color:var(--clay-tint);font-weight:700;}
+
+.extract-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;}
+.extract-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);}
+.extract-row:last-child{border-bottom:none;}
+.extract-row .k{font-size:11.5px;color:var(--slate);text-transform:uppercase;letter-spacing:.03em;}
+.extract-row .v{font-family:'IBM Plex Mono';font-size:13px;font-weight:600;color:var(--ink);}
+.extract-row .v.edit{color:var(--amber-deep);}
+.confidence{display:flex;align-items:center;gap:8px;margin-top:16px;}
+.confidence-bar{flex:1;height:6px;background:var(--paper);border-radius:4px;overflow:hidden;}
+.confidence-fill{height:100%;background:var(--sage);width:94%;}
+.matched-list{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
+.ocr-tag{display:inline-block;font-family:'IBM Plex Mono';font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;background:var(--sage-tint);color:var(--sage);padding:3px 9px;border-radius:20px;margin-bottom:10px;}
+.loader-row{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-soft);}
+.spinner{width:16px;height:16px;border-radius:50%;border:2.5px solid var(--border);border-top-color:var(--amber);animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.foot-note{text-align:center;padding:26px;font-size:11.5px;color:var(--slate);}
+
+@media (max-width:960px){
+  .app-shell{grid-template-columns:1fr;}
+  .sidebar{flex-direction:row;overflow:auto;gap:14px;}
+  .proc-grid,.scan-grid,.login-card,.chat-shell{grid-template-columns:1fr;}
+  .chat-shell{height:auto;}
+  .chat-history{max-height:200px;}
+  .stat-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-mark">Rx</div>
+    <div class="brand-name">PharmaDiscover<span>.</span></div>
+  </div>
+  <div class="topbar-right" id="topbarRight">
+    <span class="mono" style="letter-spacing:.04em;text-transform:uppercase;font-size:11px;">Intelligent Search · OCR · AI Recommendations · Supplier Verification</span>
+  </div>
+</div>
+<div class="proto-strip">UI Prototype — Role-based access · Admin · Researcher · Proactive Team</div>
+
+<!-- ============ LOGIN ============ -->
+<div class="screen active" id="screen-login">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-visual">
+        <div>
+          <div class="seal"><div class="seal-check">✓</div><div class="seal-text">Verified</div></div>
+          <h1>One platform to find, verify, and compare pharmaceutical manufacturers.</h1>
+          <p>AI search, OCR label reading, and supplier verification — with each role seeing only the data it's permitted to see.</p>
+        </div>
+        <div class="login-stats">
+          <div class="login-stat"><b>3,200+</b><span>Manufacturers</span></div>
+          <div class="login-stat"><b>98%</b><span>Match accuracy</span></div>
+          <div class="login-stat"><b>24/7</b><span>Live data sync</span></div>
+        </div>
+        <div class="access-note"><b>Role-based access.</b> Your account credentials — not a menu pick — determine what you can see. Admin records (users, data sources, approvals) are never exposed to Researcher or Proactive Team accounts, and vice versa.</div>
+      </div>
+      <div class="login-form">
+        <div class="eyebrow">Sign in</div>
+        <h2>Welcome back</h2>
+        <p class="sub">Enter your credentials — your role and permissions are detected automatically.</p>
+        <div class="login-error" id="loginError">Incorrect email or password. Please try again.</div>
+        <form onsubmit="return doLogin(event)">
+          <div class="field"><label>Work email</label><input type="text" id="loginEmail" placeholder="you@pharmadiscover.ai" autocomplete="username"></div>
+          <div class="field"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••••" autocomplete="current-password"></div>
+          <button class="btn-primary" type="submit">Sign in →</button>
+        </form>
+        <div class="login-foot">Role detection is automatic — determined by your account, not a selector.</div>
+        <div class="login-foot">New here? <a href="https://pharma-discover-ui.netlify.app/#" onclick="showRegister(event)" style="color:var(--amber-deep);font-weight:700;text-decoration:none;">Create an account →</a></div>
+
+        <div class="demo-box">
+          <div class="dt">Prototype demo access (for reviewers only)</div>
+          <div class="demo-row"><span class="role">Admin</span><span class="cred">admin@pharmadiscover.ai</span><button onclick="fillDemo(&#39;admin&#39;)">Use</button></div>
+          <div class="demo-row"><span class="role">Researcher</span><span class="cred">researcher@pharmadiscover.ai</span><button onclick="fillDemo(&#39;researcher&#39;)">Use</button></div>
+          <div class="demo-row"><span class="role">Proactive Team</span><span class="cred">field@pharmadiscover.ai</span><button onclick="fillDemo(&#39;field&#39;)">Use</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ REGISTER ============ -->
+<div class="screen" id="screen-register">
+  <div class="login-wrap">
+    <div class="login-card" style="grid-template-columns:1fr;max-width:640px;">
+      <div class="login-form" style="padding:44px 46px;">
+        <div class="eyebrow">Create an account</div>
+        <h2>Join PharmaDiscover</h2>
+        <p class="sub">Register your manufacturing brand, or join as a Researcher / Proactive Team member.</p>
+
+        <div class="tab-pills" style="margin-bottom:22px;">
+          <div class="tab-pill active" id="regTabManufacturer" onclick="setRegisterType(&#39;manufacturer&#39;)">I'm a Manufacturer</div>
+          <div class="tab-pill" id="regTabTeam" onclick="setRegisterType(&#39;team&#39;)">I'm joining the team</div>
+        </div>
+
+        <div class="register-success" id="registerSuccess" style="display:none;background:var(--sage-tint);color:var(--sage);border-radius:9px;padding:12px 14px;font-size:13px;font-weight:600;margin-bottom:18px;"></div>
+
+        <!-- Manufacturer registration -->
+        <form id="formManufacturer" onsubmit="return submitRegister(event,&#39;manufacturer&#39;)">
+          <div class="field"><label>Company / brand name</label><input required="" type="text" placeholder="e.g. Solace Pharma Pvt Ltd"></div>
+          <div class="stat-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:0;">
+            <div class="field"><label>Contact person name</label><input required="" type="text" placeholder="Full name"></div>
+            <div class="field"><label>Phone number</label><input required="" type="tel" placeholder="+91 98765 43210"></div>
+          </div>
+          <div class="stat-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:0;">
+            <div class="field"><label>State</label>
+              <select required="" style="width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:9px;font-family:&#39;Inter&#39;;font-size:14px;background:var(--paper);color:var(--ink);">
+                <option value="">Select state</option>
+                <option>Gujarat</option><option>Maharashtra</option><option>Telangana</option><option>Karnataka</option>
+                <option>Tamil Nadu</option><option>Delhi</option><option>Uttar Pradesh</option><option>Other</option>
+              </select>
+            </div>
+            <div class="field"><label>Registered email</label><input required="" type="email" placeholder="you@company.com"></div>
+          </div>
+          <div class="field"><label>Business address</label><input required="" type="text" placeholder="Plot / street, city, PIN code"></div>
+          <div class="field"><label>Set a password</label><input required="" type="password" placeholder="••••••••••"></div>
+          <button class="btn-primary" type="submit">Register manufacturer →</button>
+          <p style="font-size:11.5px;color:var(--slate);margin-top:10px;line-height:1.6;">Submissions are reviewed and verified by the Admin team before your brand appears in search results.</p>
+        </form>
+
+        <!-- Team member registration -->
+        <form id="formTeam" style="display:none;" onsubmit="return submitRegister(event,&#39;team&#39;)">
+          <div class="field"><label>Full name</label><input required="" type="text" placeholder="Your name"></div>
+          <div class="field"><label>Register as</label>
+            <select required="" style="width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:9px;font-family:&#39;Inter&#39;;font-size:14px;background:var(--paper);color:var(--ink);">
+              <option value="">Select role</option>
+              <option value="researcher">Researcher (Procurement)</option>
+              <option value="field">Proactive Team (Field)</option>
+            </select>
+          </div>
+          <div class="field"><label>Email (this becomes your login ID)</label><input required="" type="email" placeholder="you@pharmadiscover.ai"></div>
+          <div class="field"><label>Set a password</label><input required="" type="password" placeholder="••••••••••"></div>
+          <button class="btn-primary" type="submit">Create account →</button>
+          <p style="font-size:11.5px;color:var(--slate);margin-top:10px;line-height:1.6;">New team accounts are activated by an Admin before first sign-in.</p>
+        </form>
+
+        <div class="login-foot">Already have an account? <a href="https://pharma-discover-ui.netlify.app/#" onclick="showLogin(event)" style="color:var(--amber-deep);font-weight:700;text-decoration:none;">Back to sign in</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ACCESS DENIED ============ -->
+<div class="screen" id="screen-denied">
+  <div class="denied-wrap">
+    <div class="denied-card">
+      <div class="icon">✕</div>
+      <h2>Access restricted</h2>
+      <p>Your account doesn't have permission to view this workspace. Each role is scoped to its own data — sign in with an account that has the right permissions, or return to your workspace.</p>
+      <button class="btn-amber-sm" style="margin-top:18px;" onclick="goHome()">Back to my workspace</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN ============ -->
+<div class="screen" id="screen-admin">
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="sidebar-role">Admin console<small>Full system access</small></div>
+      <div class="nav-group">
+        <div class="nav-label">Overview</div>
+        <div class="nav-item active" data-sub="admin-dashboard" onclick="setSub(&#39;admin&#39;,&#39;admin-dashboard&#39;,this)"><span class="dot"></span>Dashboard</div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Data management</div>
+        <div class="nav-item" data-sub="admin-manufacturers" onclick="setSub(&#39;admin&#39;,&#39;admin-manufacturers&#39;,this)"><span class="dot"></span>Manufacturers</div>
+        <div class="nav-item" data-sub="admin-medicines" onclick="setSub(&#39;admin&#39;,&#39;admin-medicines&#39;,this)"><span class="dot"></span>Medicines &amp; ingredients</div>
+        <div class="nav-item" data-sub="admin-sources" onclick="setSub(&#39;admin&#39;,&#39;admin-sources&#39;,this)"><span class="dot"></span>Data sources &amp; integrations</div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Access control</div>
+        <div class="nav-item" data-sub="admin-users" onclick="setSub(&#39;admin&#39;,&#39;admin-users&#39;,this)"><span class="dot"></span>Users &amp; roles</div>
+      </div>
+      <div class="scope-note"><b>Restricted.</b> This console and everything in it is visible to Admin accounts only.</div>
+    </div>
+    <div class="main">
+
+      <div class="subview active" id="admin-dashboard">
+        <div class="main-head">
+          <div><h1>System overview</h1><p class="sub">Data health and platform activity across all sources.</p></div>
+          <div class="head-actions"><button class="btn-outline">Export report</button><button class="btn-amber-sm" onclick="setSub(&#39;admin&#39;,&#39;admin-manufacturers&#39;, document.querySelector(&#39;[data-sub=admin-manufacturers]&#39;))">+ Add manufacturer</button></div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="k">3,214</div><div class="lbl">Verified manufacturers</div><div class="delta">↑ 42 this week</div></div>
+          <div class="stat-card"><div class="k">18,905</div><div class="lbl">Medicine records</div><div class="delta">↑ 210 this week</div></div>
+          <div class="stat-card"><div class="k">6</div><div class="lbl">Active data sources</div><div class="delta">Synced 12 min ago</div></div>
+          <div class="stat-card"><div class="k">27</div><div class="lbl">Pending verifications</div><div class="delta" style="color:var(--amber-deep)">Needs review</div></div>
+        </div>
+        <div class="panel">
+          <h3>Recently added manufacturers</h3>
+          <p class="panel-sub">Awaiting or recently completed verification.</p>
+          <table>
+            <tbody><tr><th>Manufacturer</th><th>Location</th><th>Certifications</th><th>Source</th><th>Status</th></tr>
+            <tr><td>Solace Pharma Pvt Ltd</td><td>Ahmedabad, IN</td><td class="mono">GMP · WHO</td><td>Web scrape</td><td><span class="badge verified">Verified</span></td></tr>
+            <tr><td>Meridian Life Sciences</td><td>Hyderabad, IN</td><td class="mono">ISO 9001</td><td>OCR upload</td><td><span class="badge pending">Pending</span></td></tr>
+            <tr><td>Northfield Biotech</td><td>Pune, IN</td><td class="mono">GMP</td><td>Manual entry</td><td><span class="badge verified">Verified</span></td></tr>
+            <tr><td>ABC Pharma Pvt Ltd</td><td>Vadodara, IN</td><td class="mono">—</td><td>Web scrape</td><td><span class="badge flag">Duplicate?</span></td></tr>
+          </tbody></table>
+        </div>
+        <div class="panel">
+          <h3>Data source health</h3>
+          <table>
+            <tbody><tr><th>Source</th><th>Type</th><th>Last sync</th><th>Records</th></tr>
+            <tr><td>PharmaCompass</td><td>Web scraping</td><td>12 min ago</td><td class="mono">1,204</td></tr>
+            <tr><td>OpenFDA</td><td>API</td><td>1 hr ago</td><td class="mono">6,880</td></tr>
+            <tr><td>Proactive team OCR uploads</td><td>Image extraction</td><td>3 hr ago</td><td class="mono">312</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <div class="subview" id="admin-manufacturers">
+        <div class="main-head">
+          <div><h1>Manufacturers</h1><p class="sub">Add, update, verify, and resolve duplicate manufacturer records.</p></div>
+          <div class="head-actions"><button class="btn-outline">Import CSV</button><button class="btn-amber-sm">+ Add manufacturer</button></div>
+        </div>
+        <div class="panel">
+          <h3>Pending data updates</h3>
+          <p class="panel-sub">Approve or reject changes submitted by scraping jobs and field uploads.</p>
+          <table>
+            <tbody><tr><th>Manufacturer</th><th>Change</th><th>Submitted by</th><th>Status</th><th></th></tr>
+            <tr><td>Meridian Life Sciences</td><td>New cert: ISO 9001</td><td>Web scrape</td><td><span class="badge pending">Pending</span></td>
+              <td><div class="row-actions"><button class="icon-btn approve">Approve</button><button class="icon-btn reject">Reject</button></div></td></tr>
+            <tr><td>ABC Pharma Pvt Ltd</td><td>Possible duplicate of "ABC Pharmaceuticals"</td><td>Auto-detect</td><td><span class="badge flag">Flagged</span></td>
+              <td><div class="row-actions"><button class="icon-btn approve">Merge</button><button class="icon-btn reject">Dismiss</button></div></td></tr>
+            <tr><td>Solace Pharma Pvt Ltd</td><td>Contact info updated</td><td>Manual entry</td><td><span class="badge verified">Verified</span></td>
+              <td><div class="row-actions"><button class="icon-btn">View</button></div></td></tr>
+          </tbody></table>
+        </div>
+        <div class="panel">
+          <h3>All manufacturers</h3>
+          <table>
+            <tbody><tr><th>Name</th><th>Location</th><th>Certifications</th><th>Status</th></tr>
+            <tr><td>Solace Pharma Pvt Ltd</td><td>Ahmedabad, IN</td><td class="mono">GMP · WHO-GMP</td><td><span class="badge verified">Verified</span></td></tr>
+            <tr><td>Meridian Life Sciences</td><td>Hyderabad, IN</td><td class="mono">ISO 9001</td><td><span class="badge pending">Pending</span></td></tr>
+            <tr><td>Northfield Biotech</td><td>Pune, IN</td><td class="mono">GMP</td><td><span class="badge verified">Verified</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <div class="subview" id="admin-medicines">
+        <div class="main-head">
+          <div><h1>Medicines &amp; ingredients</h1><p class="sub">Manage the composition, strength, and form catalog used across search and matching.</p></div>
+          <div class="head-actions"><button class="btn-amber-sm">+ Add medicine</button></div>
+        </div>
+        <div class="panel">
+          <h3>Medicine catalog</h3>
+          <table>
+            <tbody><tr><th>Medicine</th><th>Composition</th><th>Linked manufacturers</th><th>Data quality</th></tr>
+            <tr><td>Paracetamol 500mg</td><td class="mono">Paracetamol</td><td>4</td><td><span class="badge verified">High</span></td></tr>
+            <tr><td>Paracetamol + Caffeine</td><td class="mono">Paracetamol, Caffeine</td><td>2</td><td><span class="badge pending">Review</span></td></tr>
+            <tr><td>Ibuprofen 400mg</td><td class="mono">Ibuprofen</td><td>6</td><td><span class="badge verified">High</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <div class="subview" id="admin-sources">
+        <div class="main-head">
+          <div><h1>Data sources &amp; integrations</h1><p class="sub">Web scraping jobs, APIs, and OCR ingestion feeding the centralized database.</p></div>
+          <div class="head-actions"><button class="btn-amber-sm">+ Connect source</button></div>
+        </div>
+        <div class="panel">
+          <table>
+            <tbody><tr><th>Source</th><th>Type</th><th>Status</th><th>Last sync</th><th>Records</th></tr>
+            <tr><td>PharmaCompass</td><td>Web scraping</td><td><span class="badge verified">Active</span></td><td>12 min ago</td><td class="mono">1,204</td></tr>
+            <tr><td>OpenFDA</td><td>Regulatory API</td><td><span class="badge verified">Active</span></td><td>1 hr ago</td><td class="mono">6,880</td></tr>
+            <tr><td>Proactive team OCR uploads</td><td>Image extraction</td><td><span class="badge verified">Active</span></td><td>3 hr ago</td><td class="mono">312</td></tr>
+            <tr><td>Legacy distributor feed</td><td>CSV import</td><td><span class="badge flag">Sync error</span></td><td>2 days ago</td><td class="mono">—</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <div class="subview" id="admin-users">
+        <div class="main-head">
+          <div><h1>Users &amp; roles</h1><p class="sub">Create accounts, assign role-scoped permissions, and review activity.</p></div>
+          <div class="head-actions"><button class="btn-amber-sm">+ Create user</button></div>
+        </div>
+        <div class="panel">
+          <h3>Active accounts</h3>
+          <p class="panel-sub">Each account belongs to exactly one role. Permissions cannot be self-elevated.</p>
+          <table>
+            <tbody><tr><th>Name</th><th>Email</th><th>Role</th><th>Last active</th><th></th></tr>
+            <tr><td>Dr. S. Naik</td><td class="mono">admin@pharmadiscover.ai</td><td><span class="badge flag" style="background:var(--amber-tint);color:var(--amber-deep);">Admin</span></td><td>Just now</td><td><button class="icon-btn">Edit</button></td></tr>
+            <tr><td>Parishi B.</td><td class="mono">researcher@pharmadiscover.ai</td><td><span class="badge verified">Researcher</span></td><td>2 hrs ago</td><td><button class="icon-btn">Edit</button></td></tr>
+            <tr><td>Nikhil S.</td><td class="mono">field@pharmadiscover.ai</td><td><span class="badge pending">Proactive Team</span></td><td>Today</td><td><button class="icon-btn">Edit</button></td></tr>
+          </tbody></table>
+        </div>
+        <div class="panel">
+          <h3>Activity log</h3>
+          <table>
+            <tbody><tr><th>User</th><th>Action</th><th>Time</th></tr>
+            <tr><td>Nikhil S.</td><td>Uploaded scan · Paracetamol 500mg pack</td><td>10 min ago</td></tr>
+            <tr><td>Parishi B.</td><td>Saved comparison · 3 manufacturers</td><td>1 hr ago</td></tr>
+            <tr><td>Dr. S. Naik</td><td>Approved cert update · Meridian Life Sciences</td><td>2 hrs ago</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============ RESEARCHER (PROCUREMENT) ============ -->
+<div class="screen" id="screen-researcher">
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="sidebar-role">Researcher<small>Procurement &amp; sourcing</small></div>
+      <div class="nav-group">
+        <div class="nav-label">Discover</div>
+        <div class="nav-item active" data-sub="r-search" onclick="setSub(&#39;researcher&#39;,&#39;r-search&#39;,this)"><span class="dot"></span>Search &amp; chat</div>
+        <div class="nav-item" data-sub="r-results" onclick="setSub(&#39;researcher&#39;,&#39;r-results&#39;,this)"><span class="dot"></span>Results</div>
+        <div class="nav-item" data-sub="r-detail" onclick="setSub(&#39;researcher&#39;,&#39;r-detail&#39;,this)"><span class="dot"></span>Manufacturer detail</div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Compare</div>
+        <div class="nav-item" data-sub="r-alt" onclick="setSub(&#39;researcher&#39;,&#39;r-alt&#39;,this)"><span class="dot"></span>Alternative medicines</div>
+        <div class="nav-item" data-sub="r-compare" onclick="setSub(&#39;researcher&#39;,&#39;r-compare&#39;,this)"><span class="dot"></span>Compare</div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Workspace</div>
+        <div class="nav-item" data-sub="r-saved" onclick="setSub(&#39;researcher&#39;,&#39;r-saved&#39;,this)"><span class="dot"></span>Saved &amp; exported</div>
+      </div>
+      <div class="scope-note"><b>Scoped access.</b> You see manufacturer, medicine, and certification data only — no user management or system administration.</div>
+    </div>
+    <div class="main">
+
+      <div class="subview active" id="r-search">
+        <div class="main-head">
+          <div><h1>Find a manufacturer</h1><p class="sub">Ask in plain language — the system searches internal records and live external sources together.</p></div>
+        </div>
+        <div class="chat-shell">
+          <div class="chat-history">
+            <div class="chat-history-head"><button class="new-chat-btn" onclick="newChat()">+ New chat</button></div>
+            <div class="history-list" id="historyList">
+              <div class="history-item active" data-thread="t1" onclick="loadThread(&#39;t1&#39;, this)">Paracetamol 500mg, Gujarat GMP<span class="ts">Today</span></div>
+              <div class="history-item" data-thread="t2" onclick="loadThread(&#39;t2&#39;, this)">Alternatives to Dolo 650<span class="ts">Yesterday</span></div>
+              <div class="history-item" data-thread="t3" onclick="loadThread(&#39;t3&#39;, this)">Ibuprofen 400mg suppliers<span class="ts">2 days ago</span></div>
+              <div class="history-item" data-thread="t4" onclick="loadThread(&#39;t4&#39;, this)">WHO-GMP manufacturers, Pune<span class="ts">4 days ago</span></div>
+            </div>
+          </div>
+          <div class="chat-panel">
+            <div class="chat-head"><div class="eyebrow">Assistant</div><h3>Ask about a product or supplier</h3></div>
+            <div class="chat-body" id="chatBody">
+              <div class="msg user">Find manufacturers of Paracetamol 500mg with GMP certification, near Gujarat.</div>
+              <div class="msg ai">Found 4 verified manufacturers. Solace Pharma and Meridian both hold current GMP status. Want me to compare pricing and lead time?</div>
+              <div class="msg user">Yes, and check if there's a cheaper alternative composition.</div>
+              <div class="msg ai">Paracetamol + Caffeine combinations from 2 nearby suppliers cost ~14% less. Continue to Results →</div>
+            </div>
+            <div class="chat-input"><input type="text" id="chatInput" placeholder="Ask about manufacturers, ingredients, certifications…"><button class="chat-send" onclick="setSub(&#39;researcher&#39;,&#39;r-results&#39;, document.querySelector(&#39;[data-sub=r-results]&#39;))">Ask</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subview" id="r-results">
+        <div class="main-head">
+          <div><h1>Search results</h1><p class="sub">Relevant manufacturers, product details, certifications, and compliance info.</p></div>
+          <div class="head-actions"><button class="btn-outline" onclick="setSub(&#39;researcher&#39;,&#39;r-search&#39;, document.querySelector(&#39;[data-sub=r-search]&#39;))">← Refine search</button></div>
+        </div>
+        <div class="result-toolbar" style="margin-bottom:12px;"><div class="count" id="resultCount">4 manufacturers matched · Paracetamol 500mg</div><button class="mini-btn">Filter</button></div>
+        <div id="resultsList">
+          <div class="mfr-card" style="margin-bottom:12px;">
+            <div class="mfr-avatar">SP</div>
+            <div class="mfr-body">
+              <div class="mfr-top"><div><div class="mfr-name">Solace Pharma Pvt Ltd</div><div class="mfr-loc">Ahmedabad, Gujarat</div></div><span class="badge verified">Verified · 98% match</span></div>
+              <div class="mfr-tags"><span class="tag-pill">GMP</span><span class="tag-pill">WHO-GMP</span><span class="tag-pill">Paracetamol 500mg</span></div>
+              <div class="mfr-actions"><button class="mini-btn primary" onclick="setSub(&#39;researcher&#39;,&#39;r-detail&#39;, document.querySelector(&#39;[data-sub=r-detail]&#39;))">View profile</button><button class="mini-btn">Add to compare</button></div>
+            </div>
+          </div>
+          <div class="mfr-card" style="margin-bottom:12px;">
+            <div class="mfr-avatar" style="background:var(--amber-tint);color:var(--amber-deep)">ML</div>
+            <div class="mfr-body">
+              <div class="mfr-top"><div><div class="mfr-name">Meridian Life Sciences</div><div class="mfr-loc">Hyderabad, Telangana</div></div><span class="badge pending">Pending review · 94%</span></div>
+              <div class="mfr-tags"><span class="tag-pill">ISO 9001</span><span class="tag-pill">Paracetamol 500mg</span></div>
+              <div class="mfr-actions"><button class="mini-btn primary" onclick="setSub(&#39;researcher&#39;,&#39;r-detail&#39;, document.querySelector(&#39;[data-sub=r-detail]&#39;))">View profile</button><button class="mini-btn">Add to compare</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="head-actions" style="justify-content:center;margin-top:10px;">
+          <button class="btn-outline" id="loadMoreBtn" onclick="loadMoreResults()">Load more</button>
+          <button class="btn-amber-sm">Export results</button>
+        </div>
+      </div>
+
+      <div class="subview" id="r-detail">
+        <div class="main-head">
+          <div><h1>Manufacturer detail</h1><p class="sub">Company profile, capabilities, certifications, and contact.</p></div>
+          <div class="head-actions"><button class="btn-outline" onclick="setSub(&#39;researcher&#39;,&#39;r-results&#39;, document.querySelector(&#39;[data-sub=r-results]&#39;))">← Back to results</button></div>
+        </div>
+        <div class="panel">
+          <div style="display:flex;gap:16px;align-items:center;margin-bottom:18px;">
+            <div class="mfr-avatar" style="width:52px;height:52px;font-size:18px;">SP</div>
+            <div><h2 style="font-size:20px;margin:0;">Solace Pharma Pvt Ltd</h2><p style="margin:2px 0 0;color:var(--slate);font-size:13px;">Ahmedabad, Gujarat, IN · Est. 1998 · WHO-GMP verified, 98% confidence</p></div>
+          </div>
+          <div class="compare-strip">
+            <div class="compare-card"><div class="h">Composition</div><div class="body">Paracetamol 500mg tablets, oral suspension</div></div>
+            <div class="compare-card"><div class="h">Manufacturer resolution</div><div class="body">Matched across 3 sources (also listed as "Solace Pharmaceuticals")</div></div>
+            <div class="compare-card"><div class="h">Certifications</div><div class="body">GMP, WHO-GMP, ISO 9001</div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Contact &amp; capacity</h3>
+          <div class="extract-row"><div class="k">Contact</div><div class="v" style="font-family:&#39;Inter&#39;;font-weight:600;">procurement@solacepharma.in</div></div>
+          <div class="extract-row"><div class="k">Phone</div><div class="v" style="font-family:&#39;Inter&#39;;font-weight:600;">+91 79 4021 8890</div></div>
+          <div class="extract-row"><div class="k">Min. order</div><div class="v" style="font-family:&#39;Inter&#39;;font-weight:600;">50,000 units</div></div>
+        </div>
+        <div class="head-actions"><button class="btn-amber-sm" onclick="setSub(&#39;researcher&#39;,&#39;r-alt&#39;, document.querySelector(&#39;[data-sub=r-alt]&#39;))">View alternatives →</button><button class="btn-outline">Add to compare</button></div>
+      </div>
+
+      <div class="subview" id="r-alt">
+        <div class="main-head">
+          <div><h1>Alternative medicines</h1><p class="sub">Similar composition, therapeutic alternatives, or other strengths and forms.</p></div>
+          <div class="head-actions"><button class="btn-outline" onclick="setSub(&#39;researcher&#39;,&#39;r-results&#39;, document.querySelector(&#39;[data-sub=r-results]&#39;))">← Back to results</button></div>
+        </div>
+        <div class="compare-strip">
+          <div class="compare-card"><div class="h">Similar composition</div><div class="body">Paracetamol + Caffeine combinations from 4 verified suppliers.</div></div>
+          <div class="compare-card"><div class="h">Therapeutic alternative</div><div class="body">Ibuprofen 400mg — equivalent analgesic class.</div></div>
+          <div class="compare-card"><div class="h">Other strengths / forms</div><div class="body">Paracetamol 650mg — syrup and effervescent forms available.</div></div>
+        </div>
+        <div style="margin-top:20px;"><button class="btn-amber-sm" onclick="setSub(&#39;researcher&#39;,&#39;r-compare&#39;, document.querySelector(&#39;[data-sub=r-compare]&#39;))">Compare these →</button></div>
+      </div>
+
+      <div class="subview" id="r-compare">
+        <div class="main-head">
+          <div><h1>Compare manufacturers</h1><p class="sub">Ingredients, price, certifications, and quality &amp; compliance side by side.</p></div>
+          <div class="head-actions"><button class="btn-outline" onclick="setSub(&#39;researcher&#39;,&#39;r-alt&#39;, document.querySelector(&#39;[data-sub=r-alt]&#39;))">← Back to alternatives</button></div>
+        </div>
+        <div class="panel">
+          <table class="compare-table">
+            <tbody><tr><th></th><th>Solace Pharma</th><th>Northfield Biotech</th><th>Meridian Life Sciences</th></tr>
+            <tr><td>Ingredients</td><td class="hl">Exact match</td><td>Close match</td><td>Close match</td></tr>
+            <tr><td>Price / unit</td><td>₹0.42</td><td class="hl">₹0.38</td><td>₹0.45</td></tr>
+            <tr><td>Certifications</td><td class="hl">GMP, WHO-GMP, ISO</td><td>GMP</td><td>ISO 9001</td></tr>
+            <tr><td>Quality &amp; compliance</td><td class="hl">98%</td><td>95%</td><td>89%</td></tr>
+          </tbody></table>
+        </div>
+        <div class="head-actions"><button class="btn-amber-sm" onclick="setSub(&#39;researcher&#39;,&#39;r-saved&#39;, document.querySelector(&#39;[data-sub=r-saved]&#39;))">Save this comparison →</button></div>
+      </div>
+
+      <div class="subview" id="r-saved">
+        <div class="main-head"><div><h1>Saved &amp; exported</h1><p class="sub">Your shortlists and comparisons, ready to export or share with your team.</p></div></div>
+        <div class="panel">
+          <h3>This week</h3>
+          <p class="panel-sub">3 manufacturer comparisons saved.</p>
+          <table>
+            <tbody><tr><th>Item</th><th>Type</th><th>Saved</th><th></th></tr>
+            <tr><td>Paracetamol 500mg — 3 manufacturers</td><td>Comparison</td><td>Today</td><td><div class="row-actions"><button class="icon-btn">Export PDF</button><button class="icon-btn">Export CSV</button></div></td></tr>
+            <tr><td>Solace Pharma Pvt Ltd</td><td>Manufacturer profile</td><td>Yesterday</td><td><div class="row-actions"><button class="icon-btn">Export PDF</button></div></td></tr>
+            <tr><td>Ibuprofen 400mg alternatives</td><td>Alternatives list</td><td>2 days ago</td><td><div class="row-actions"><button class="icon-btn">Export CSV</button></div></td></tr>
+          </tbody></table>
+        </div>
+        <div class="head-actions"><button class="btn-amber-sm">Share with team</button></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROACTIVE TEAM (FIELD) ============ -->
+<div class="screen" id="screen-field">
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="sidebar-role">Proactive Team<small>Field capture &amp; verification</small></div>
+      <div class="nav-group">
+        <div class="nav-label">Capture</div>
+        <div class="nav-item active" data-sub="f-scan" onclick="setSub(&#39;field&#39;,&#39;f-scan&#39;,this)"><span class="dot"></span>Scan / upload pack</div>
+        <div class="nav-item" data-sub="f-confirm" onclick="setSub(&#39;field&#39;,&#39;f-confirm&#39;,this)"><span class="dot"></span>Confirm data</div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Results</div>
+        <div class="nav-item" data-sub="f-matched" onclick="setSub(&#39;field&#39;,&#39;f-matched&#39;,this)"><span class="dot"></span>Matched manufacturers</div>
+      </div>
+      <div class="scope-note"><b>Scoped access.</b> You see scan history and matched manufacturer records only — no admin data or other users' saved work.</div>
+    </div>
+    <div class="main">
+
+      <div class="subview active" id="f-scan">
+        <div class="main-head">
+          <div><h1>Scan a medicine pack</h1><p class="sub">Capture with your camera or upload an image — text extraction (OCR) runs automatically, right here.</p></div>
+        </div>
+        <div class="scan-grid">
+          <div class="scan-frame">
+            <div class="capture-toggle">
+              <button class="active" onclick="setCapture(&#39;camera&#39;, this)">Use camera</button>
+              <button onclick="setCapture(&#39;upload&#39;, this)">Upload image</button>
+            </div>
+
+            <div class="capture-pane active" id="pane-camera">
+              <div class="scan-viewport">
+                <div class="scan-line"></div>
+                <div class="pack">PARACETAMOL<br>500mg Tablets<br><br>MFG: SOLACE PHARMA<br>BATCH: SP2260471<br>EXP: 03/2028</div>
+              </div>
+              <div class="scan-caption">Align pack within frame · auto-capture</div>
+              <button class="scan-btn" onclick="runExtraction()">Capture &amp; extract text →</button>
+            </div>
+
+            <div class="capture-pane" id="pane-upload">
+              <label class="dropzone" for="packUpload" id="dropzoneEl">
+                <div class="dz-icon">⇧</div>
+                <div class="dz-title">Upload a photo of the pack</div>
+                <div class="dz-sub">JPG or PNG · label, strip, or box · OCR runs automatically after upload</div>
+                <input type="file" id="packUpload" accept="image/*" onchange="fileSelected(this)">
+              </label>
+              <div id="fileChipArea"></div>
+              <button class="scan-btn" onclick="runExtraction()">Extract text from image →</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="extract-panel">
+              <span class="ocr-tag">OCR · runs in this tab</span>
+              <h3 style="margin:0 0 4px;">Extracted data</h3>
+              <p class="sub" style="margin:0 0 6px;font-size:12.5px;">Backend OCR + computer vision — review before confirming. No separate OCR page needed.</p>
+              <div id="extractLoading" style="display:none;" class="loader-row"><div class="spinner"></div> Reading text, batch, and manufacturer from image…</div>
+              <div id="extractResult">
+                <div class="extract-row"><div class="k">Product name</div><div class="v">Paracetamol 500mg</div></div>
+                <div class="extract-row"><div class="k">Manufacturer</div><div class="v edit">Solace Pharma Pvt Ltd ✎</div></div>
+                <div class="extract-row"><div class="k">Batch no.</div><div class="v">SP2260471</div></div>
+                <div class="extract-row"><div class="k">Expiry</div><div class="v">03 / 2028</div></div>
+                <div class="confidence"><span class="mono" style="font-size:11px;color:var(--slate)">Confidence</span><div class="confidence-bar"><div class="confidence-fill"></div></div><span class="mono" style="font-size:11px">94%</span></div>
+                <div class="head-actions" style="margin-top:16px;"><button class="btn-outline" onclick="setSub(&#39;field&#39;,&#39;f-confirm&#39;, document.querySelector(&#39;[data-sub=f-confirm]&#39;))">Edit fields</button><button class="btn-amber-sm" onclick="setSub(&#39;field&#39;,&#39;f-confirm&#39;, document.querySelector(&#39;[data-sub=f-confirm]&#39;))">Confirm &amp; auto-query →</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subview" id="f-confirm">
+        <div class="main-head">
+          <div><h1>Confirm extracted data</h1><p class="sub">Review and edit any field the scanner may have misread before querying the database.</p></div>
+          <div class="head-actions"><button class="btn-outline" onclick="setSub(&#39;field&#39;,&#39;f-scan&#39;, document.querySelector(&#39;[data-sub=f-scan]&#39;))">← Back to scan</button></div>
+        </div>
+        <div class="panel">
+          <div class="stat-grid" style="grid-template-columns:repeat(2,1fr);">
+            <div class="field"><label>Drug name</label><input value="Paracetamol 500mg"></div>
+            <div class="field"><label>Manufacturer</label><input value="Solace Pharma Pvt Ltd"></div>
+            <div class="field"><label>Batch no.</label><input value="SP2260471"></div>
+            <div class="field"><label>Expiry</label><input value="03/2028"></div>
+          </div>
+        </div>
+        <div class="head-actions"><button class="btn-amber-sm" onclick="runAutoQuery()">Confirm &amp; continue →</button></div>
+        <div id="queryLoading" style="display:none;margin-top:16px;" class="loader-row"><div class="spinner"></div> Querying centralized database for a match against 3,214 verified records…</div>
+      </div>
+
+      <div class="subview" id="f-matched">
+        <div class="main-head"><div><h1>Matched manufacturers</h1><p class="sub">Verified manufacturers matched against the extracted data.</p></div></div>
+        <div class="mfr-card">
+          <div class="mfr-avatar">SP</div>
+          <div class="mfr-body">
+            <div class="mfr-top"><div><div class="mfr-name">Solace Pharma Pvt Ltd</div><div class="mfr-loc">Ahmedabad, Gujarat · Match confidence 96%</div></div><span class="badge verified">Verified</span></div>
+            <div class="mfr-tags"><span class="tag-pill">GMP</span><span class="tag-pill">WHO-GMP</span><span class="tag-pill">Batch confirmed</span><span class="tag-pill">White-label capable</span></div>
+          </div>
+        </div>
+        <div class="head-actions" style="margin-top:16px;"><button class="btn-outline" onclick="setSub(&#39;field&#39;,&#39;f-scan&#39;, document.querySelector(&#39;[data-sub=f-scan]&#39;))">← Scan another pack</button></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="foot-note">PharmaDiscover — AI-Powered Pharmaceutical Manufacturer Discovery &amp; Intelligent Product Analysis Platform · UI Prototype</div>
+
+<script>
+/* ---------- credential store (prototype only — in production this lives server-side) ---------- */
+const USERS = [
+  {email:'admin@pharmadiscover.ai', password:'Admin@2026', role:'admin', name:'Dr. S. Naik', title:'Platform Admin'},
+  {email:'researcher@pharmadiscover.ai', password:'Research@2026', role:'researcher', name:'Parishi B.', title:'Procurement Researcher'},
+  {email:'field@pharmadiscover.ai', password:'Field@2026', role:'field', name:'Nikhil S.', title:'Proactive Field Team'}
+];
+const ROLE_META = {
+  admin:{screen:'screen-admin', label:'Admin'},
+  researcher:{screen:'screen-researcher', label:'Researcher'},
+  field:{screen:'screen-field', label:'Proactive Team'}
+};
+let session = null;
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0});
+}
+
+function fillDemo(role){
+  const u = USERS.find(x=>x.role===role);
+  document.getElementById('loginEmail').value = u.email;
+  document.getElementById('loginPassword').value = u.password;
+}
+
+function doLogin(e){
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPassword').value;
+  const user = USERS.find(u => u.email.toLowerCase() === email && u.password === pass);
+  const err = document.getElementById('loginError');
+  if(!user){
+    err.classList.add('show');
+    return false;
+  }
+  err.classList.remove('show');
+  session = user;
+  renderSession();
+  showScreen(ROLE_META[user.role].screen);
+  return false;
+}
+
+function renderSession(){
+  document.getElementById('topbarRight').innerHTML = `
+    <div class="session-pill">
+      <div class="who"><b>${session.name}</b><span>${ROLE_META[session.role].label}</span></div>
+      <button onclick="logout()">Sign out</button>
+    </div>`;
+  document.querySelectorAll('.sidebar-foot').forEach(el=>el.remove());
+}
+
+function logout(){
+  session = null;
+  document.getElementById('loginEmail').value = '';
+  document.getElementById('loginPassword').value = '';
+  document.getElementById('topbarRight').innerHTML = `<span class="mono" style="letter-spacing:.04em;text-transform:uppercase;font-size:11px;">Intelligent Search · OCR · AI Recommendations · Supplier Verification</span>`;
+  showScreen('screen-login');
+}
+
+function goHome(){
+  if(session){ showScreen(ROLE_META[session.role].screen); }
+  else { showScreen('screen-login'); }
+}
+
+/* ---------- registration ---------- */
+function showRegister(e){
+  if(e) e.preventDefault();
+  showScreen('screen-register');
+}
+function showLogin(e){
+  if(e) e.preventDefault();
+  showScreen('screen-login');
+}
+function setRegisterType(type){
+  document.getElementById('regTabManufacturer').classList.toggle('active', type==='manufacturer');
+  document.getElementById('regTabTeam').classList.toggle('active', type==='team');
+  document.getElementById('formManufacturer').style.display = type==='manufacturer' ? 'block' : 'none';
+  document.getElementById('formTeam').style.display = type==='team' ? 'block' : 'none';
+  document.getElementById('registerSuccess').style.display = 'none';
+}
+function submitRegister(e, type){
+  e.preventDefault();
+  const box = document.getElementById('registerSuccess');
+  if(type==='manufacturer'){
+    box.textContent = 'Thanks — your manufacturer details have been submitted for verification. The Admin team will review and activate your listing.';
+  } else {
+    box.textContent = 'Account request submitted. An Admin will activate your login before you can sign in.';
+  }
+  box.style.display = 'block';
+  e.target.reset();
+  return false;
+}
+
+/* ---------- in-role sub navigation (role-guarded) ---------- */
+function setSub(requiredRole, subId, navEl){
+  if(!session || session.role !== requiredRole){
+    showScreen('screen-denied');
+    return;
+  }
+  const shell = navEl.closest('.app-shell');
+  shell.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  navEl.classList.add('active');
+  shell.querySelectorAll('.subview').forEach(v=>v.classList.remove('active'));
+  document.getElementById(subId).classList.add('active');
+  shell.querySelector('.main').scrollTo({top:0});
+}
+
+/* ---------- researcher: results load more ---------- */
+const EXTRA_MANUFACTURERS = [
+  {av:'NB', bg:'sage', name:'Northfield Biotech', loc:'Pune, Maharashtra', badge:'verified', badgeText:'Verified · 91% match', tags:['GMP','Paracetamol 500mg']},
+  {av:'CF', bg:'amber', name:'Coastline Formulations', loc:'Surat, Gujarat', badge:'pending', badgeText:'Pending review · 87%', tags:['ISO 9001','Paracetamol 500mg']}
+];
+let extraLoaded = 0;
+function loadMoreResults(){
+  const btn = document.getElementById('loadMoreBtn');
+  if(extraLoaded >= EXTRA_MANUFACTURERS.length){ return; }
+  const m = EXTRA_MANUFACTURERS[extraLoaded++];
+  const avatarStyle = m.bg==='amber' ? 'style="background:var(--amber-tint);color:var(--amber-deep)"' : '';
+  const card = document.createElement('div');
+  card.className = 'mfr-card';
+  card.style.marginBottom = '12px';
+  card.innerHTML = `
+    <div class="mfr-avatar" ${avatarStyle}>${m.av}</div>
+    <div class="mfr-body">
+      <div class="mfr-top"><div><div class="mfr-name">${m.name}</div><div class="mfr-loc">${m.loc}</div></div><span class="badge ${m.badge}">${m.badgeText}</span></div>
+      <div class="mfr-tags">${m.tags.map(t=>`<span class="tag-pill">${t}</span>`).join('')}</div>
+      <div class="mfr-actions"><button class="mini-btn primary" onclick="setSub('researcher','r-detail', document.querySelector('[data-sub=r-detail]'))">View profile</button><button class="mini-btn">Add to compare</button></div>
+    </div>`;
+  document.getElementById('resultsList').appendChild(card);
+  document.getElementById('resultCount').textContent = (4 + extraLoaded) + ' manufacturers matched · Paracetamol 500mg';
+  if(extraLoaded >= EXTRA_MANUFACTURERS.length){
+    btn.textContent = 'All results loaded';
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+    btn.style.cursor = 'default';
+  }
+}
+
+/* ---------- researcher: chat history threads ---------- */
+const CHAT_THREADS = {
+  t1: [
+    {who:'user', text:'Find manufacturers of Paracetamol 500mg with GMP certification, near Gujarat.'},
+    {who:'ai', text:'Found 4 verified manufacturers. Solace Pharma and Meridian both hold current GMP status. Want me to compare pricing and lead time?'},
+    {who:'user', text:"Yes, and check if there's a cheaper alternative composition."},
+    {who:'ai', text:'Paracetamol + Caffeine combinations from 2 nearby suppliers cost ~14% less. Continue to Results →'}
+  ],
+  t2: [
+    {who:'user', text:"Find alternatives to Dolo 650 if unavailable, WHO-GMP only."},
+    {who:'ai', text:'Dolo 650 shows as unavailable from your usual suppliers this week. Two WHO-GMP alternatives with matching composition are available — Calpol and Pacimol.'}
+  ],
+  t3: [
+    {who:'user', text:'Which manufacturers supply Ibuprofen 400mg with export licensing?'},
+    {who:'ai', text:'6 manufacturers match, 3 with active export licenses. Northfield Biotech has the fastest lead time in this set.'}
+  ],
+  t4: [
+    {who:'user', text:'List WHO-GMP certified manufacturers based in Pune.'},
+    {who:'ai', text:'4 manufacturers in Pune currently hold WHO-GMP certification. Would you like their contact details?'}
+  ]
+};
+function loadThread(id, el){
+  document.querySelectorAll('#historyList .history-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+  const body = document.getElementById('chatBody');
+  body.innerHTML = CHAT_THREADS[id].map(m => `<div class="msg ${m.who}">${m.text}</div>`).join('');
+  body.scrollTop = 0;
+}
+function newChat(){
+  document.querySelectorAll('#historyList .history-item').forEach(i=>i.classList.remove('active'));
+  document.getElementById('chatBody').innerHTML = '<div class="msg ai">Hi — ask me about a manufacturer, medicine, or certification to get started.</div>';
+  document.getElementById('chatInput').focus();
+}
+
+/* ---------- proactive team: capture toggle + simulated OCR ---------- */
+function setCapture(mode, btnEl){
+  btnEl.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+  btnEl.classList.add('active');
+  document.getElementById('pane-camera').classList.toggle('active', mode==='camera');
+  document.getElementById('pane-upload').classList.toggle('active', mode==='upload');
+}
+
+function fileSelected(input){
+  const area = document.getElementById('fileChipArea');
+  if(input.files && input.files[0]){
+    area.innerHTML = `<div class="file-chip">📎 ${input.files[0].name} <span class="remove" onclick="clearFile()">✕</span></div>`;
+  }
+}
+function clearFile(){
+  document.getElementById('packUpload').value = '';
+  document.getElementById('fileChipArea').innerHTML = '';
+}
+
+function runExtraction(){
+  const loading = document.getElementById('extractLoading');
+  const result = document.getElementById('extractResult');
+  loading.style.display = 'flex';
+  result.style.display = 'none';
+  setTimeout(()=>{
+    loading.style.display = 'none';
+    result.style.display = 'block';
+  }, 900);
+}
+
+function runAutoQuery(){
+  const loading = document.getElementById('queryLoading');
+  loading.style.display = 'flex';
+  setTimeout(()=>{
+    loading.style.display = 'none';
+    setSub('field','f-matched', document.querySelector('[data-sub="f-matched"]'));
+  }, 1000);
+}
+</script>
+
+
+<script async="" src="./PharmaDiscover — AI-Powered Manufacturer Discovery Platform_files/hud" data-nf-variant="public" data-netlify-site-id="8ca7b6fd-c2d9-4461-b688-7afc9c1728bc" data-app-host="app.netlify.com"></script>
+<iframe sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox" id="nl-badge-frame" title="Powered by Netlify" style="position: fixed; bottom: 0px; right: 0px; border: 0px; margin: 0px; padding: 0px; background: transparent; z-index: 2147483645; width: 197px; height: 64px; clip-path: path(&quot;M 3 3 H 184 V 51 H 3 Z&quot;);" data-nl-ready="1" src="./PharmaDiscover — AI-Powered Manufacturer Discovery Platform_files/saved_resource.html"></iframe></body></html>
